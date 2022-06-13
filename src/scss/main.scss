@@ -97,13 +97,22 @@ html, body {
                 cursor: pointer;
                 width: 24px;
                 height: 24px;
-                margin: 50px;
+                margin: 40px;
             }
 
             #reset__counter {
                 display: none;
                 &.active {
                     display: block;
+                    border-radius: 32px;
+                    border: none;
+                    background-color: $btn-bg-color;
+                    color: $btn-color;
+                    font-size: 16px;
+                    font-weight: 700;
+                    width: 115px;
+                    height: 38px;
+                    cursor: pointer;
                 }
             }
         }
@@ -114,10 +123,10 @@ html, body {
                 gap: 24px;
                 position: relative;
                 left: 95px;
-                top: 55px;
-                width: 380px;
+                top: 45px;
+                width: 310px;
                 margin: 0;
-
+                height: 150px;
                 .title {
                     font-size: 42px;
                     padding: 0;
@@ -184,7 +193,6 @@ html, body {
             }
         }
     }
-
     .img-hero {
         width: 355px;
         height: 100%;
@@ -192,7 +200,6 @@ html, body {
 }
 
 @media screen and (max-width: $breakpoint-sm) {
-
     .wrapper {
         flex-direction: column;
         gap: 25px;
@@ -212,9 +219,18 @@ html, body {
             }
         }
     }
-
     .img-hero {
         width: 355px;
         height: 100%;
+    }
+    #alert .wrapper__alert .content__alert {
+        display: flex;
+        flex-direction: column;
+        gap: 14px;
+        position: relative;
+        left: 35px;
+        top: 35px;
+        width: 280px;
+        margin: 0;
     }
 }
