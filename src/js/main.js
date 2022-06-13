@@ -1,29 +1,39 @@
 /*jshint esversion: 6 */
 
-const Alercik = document.getElementById('alert');
-const button = document.getElementById('btn');
-const exitButton = document.getElementById('exit__alert');
-const resetButton = document.getElementById('reset__counter');
-let click = 0;
+const ALERT = document.getElementById('alert');
+const CONTENTALERT = document.getElementById('alert__bg');
+const COUNTBUTTON = document.getElementById('btn');
+const EXITBUTTON = document.getElementById('exit__alert');
+const RESETBUTTON = document.getElementById('reset__counter');
+let CLICK = localStorage.getItem('counter');
 
-button.addEventListener('click', () => {
-    Alercik.classList.toggle('active');
-    click += 1;
-    localStorage.setItem("counter", click);
-    document.getElementById('counter').innerHTML = click;
-    if (click > 5) {
-        resetButton.classList.toggle('active');
+COUNTBUTTON.addEventListener('click', () => {
+    ALERT.classList.toggle('active');
+    CLICK++;
+    localStorage.setItem('counter', CLICK);
+    document.getElementById('counter').innerHTML = CLICK;
+    console.log(CLICK);
+    if (CLICK > 5) {
+        RESETBUTTON.classList.add('active');
     } else {
-        resetButton.classList.remove('active');
+        RESETBUTTON.classList.remove('active');
     }     
 });
 
-exitButton.addEventListener('click', () => {
-    Alercik.classList.remove('active');
+EXITBUTTON.addEventListener('click', () => {
+    ALERT.classList.remove('active');
 });
 
-resetButton.addEventListener('click',() => {
-    click = 0;
+RESETBUTTON.addEventListener('click',() => {
+    CLICK = 0;
     localStorage.removeItem('counter');
-    Alercik.classList.remove('active');
+    ALERT.classList.remove('active');
+});
+
+ALERT.addEventListener('click', (e) => {
+    // console.log(e.target)
+    if (e.target === CONTENTALERT) {
+        ALERT.classList.remove('active');
+    }
+    
 });
